@@ -3,14 +3,18 @@ import * as d3 from "d3";
 var data = [80, 120, 60, 150, 200];
 var barHeight = 20;
 
-// d3.select("svg")
-//   .selectAll("rect")
-//   .data(data)
-//   .enter()
-//   .append("rect")
-//   .attr("width", function(data) {
-//     return data;
-//   })
+ d3.select("svg")
+   .selectAll("rect")
+   .data(data)
+   .enter()
+   .append("rect")
+   .attr("width", function(data) {
+     return data;
+   })
+   .attr("height", (data) => {
+     console.log(data)
+     return (data)}
+   )
 //   .attr("height", barHeight - 1)
 //   .attr("transform", function(data) {
 //     return `translate(0, ${data})`;
@@ -24,7 +28,7 @@ var barHeight = 20;
 // const svg2 = d3.select("p").append("svg");
 const cx = 20;
 const cy = 20;
-
+/*
 d3.select("svg")
   .selectAll("circle")
   .data(data)
@@ -42,7 +46,7 @@ d3.select("svg")
   .attr("r", function(d, i) {
     return Math.sqrt(d * 2);
   });
-
+*/
 // svg
 //   .append("rect")
 //   .attr("x", 50)
