@@ -2,19 +2,25 @@ import * as d3 from "d3";
 
 var data = [80, 120, 60, 150, 200];
 var barHeight = 20;
+const cx = 20;
+const cy = 20;
 
- d3.select("svg")
-   .selectAll("rect")
-   .data(data)
-   .enter()
-   .append("rect")
-   .attr("width", function(data) {
-     return data;
-   })
-   .attr("height", (data) => {
-     console.log(data)
-     return (data)}
-   )
+d3.select("svg")
+  .selectAll("rect")
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr("width", function (data) {
+    return data;
+  })
+  .attr("height", (data, i) => data)
+  .attr("x", function (d, i) {
+    return cx + i * Math.random() * 120;
+  })
+  .attr("y", function (d, i) {
+    return cy + i * Math.random() * 120;
+  });
+
 //   .attr("height", barHeight - 1)
 //   .attr("transform", function(data) {
 //     return `translate(0, ${data})`;
@@ -26,8 +32,7 @@ var barHeight = 20;
 //   .duration(7000);
 
 // const svg2 = d3.select("p").append("svg");
-const cx = 20;
-const cy = 20;
+
 /*
 d3.select("svg")
   .selectAll("circle")
